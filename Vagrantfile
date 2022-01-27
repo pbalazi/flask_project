@@ -12,13 +12,14 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "ubuntu/xenial64"
+  config.vm.box = "ubuntu/bionic64"
   config.vm.provider "virtualbox" do |v|
-	v.memory = 2048
-	v.cpus = 2
+    v.memory = 2048
+    v.cpus = 2
   end
-  
+
   config.vm.network "public_network", bridge: "Intel(R) Dual Band Wireless-AC 8265 #2"
+  config.vm.provision :shell, :path => "bootstrap.sh"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
